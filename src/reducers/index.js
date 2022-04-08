@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import { ADD_MOVIES, ADD_FAVOURITES, REMOVE_FROM_FAVOURITES, SET_SHOW_FAVOURITES, ADD_MOVIE_TO_LIST, ADD_SEARCH_RESULT } from "../actions";
+import { ADD_MOVIES, ADD_FAVOURITES, REMOVE_FROM_FAVOURITES, SET_SHOW_FAVOURITES, ADD_MOVIE_TO_LIST, ADD_SEARCH_RESULT, REMOVE_FROM_LIST } from "../actions";
 
 const initialMoviesState = {
     list: [],
@@ -44,6 +44,14 @@ export function movies(state = initialMoviesState, action){
             return{
                 ...state,
                 list: [action.movie, ...state.list]
+            }
+        case REMOVE_FROM_LIST:
+            const filteredarray = state.list.filter(
+                movie => movie.Title !== action.movie.Title
+            );
+            return{
+                ...state,
+                list: filteredarray
             }
 
         default: 

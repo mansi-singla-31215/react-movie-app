@@ -1,6 +1,7 @@
 import React from "react";
 import { StoreContext } from "..";
 import { addMovieToList, handleMovieSearch } from "../actions";
+import logo from '../movie.png';
 
 class Navbar extends React.Component {
 
@@ -34,6 +35,7 @@ class Navbar extends React.Component {
       const {result: movie, showSearchResults} = this.props.search;
         return (
             <div className="nav">
+              <img className="logo" src={logo} alt="logo" />
               <div className="search-container">
                   <input onChange={this.handleChange} />
                   <button id="search-btn" onClick={this.handleSearch}>Search</button>

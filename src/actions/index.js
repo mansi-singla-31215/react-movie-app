@@ -9,7 +9,8 @@ export const ADD_FAVOURITES = 'ADD_FAVOURITES';
 export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES';
 export const SET_SHOW_FAVOURITES = 'SET_SHOW_FAVOURITES';
 export const ADD_MOVIE_TO_LIST = 'ADD_MOVIE_TO_LIST';
-export const ADD_SEARCH_RESULT = 'ADD_SEARCH_RESULT;'
+export const ADD_SEARCH_RESULT = 'ADD_SEARCH_RESULT';
+export const REMOVE_FROM_LIST = 'REMOVE_FROM_LIST';
 
 // action creators
 export function addMovies(movies){
@@ -29,6 +30,13 @@ export function addFavourite(movie){
 export function removeFromFavourites(movie){
     return{
         type: REMOVE_FROM_FAVOURITES,
+        movie
+    }
+}
+
+export function removeFromList(movie){
+    return{
+        type: REMOVE_FROM_LIST,
         movie
     }
 }
